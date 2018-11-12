@@ -5,10 +5,10 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="py-pay",
-    version="1.0.0",
+    version="1.1.0",
     author="kerol",
     author_email="ikerol@163.com",
-    description="python pay library: alipay, wechat, etc.",
+    description="Python pay library: alipay, wechat, etc.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/kerol/py-pay",
@@ -22,5 +22,6 @@ setuptools.setup(
         'requests',
         'ujson',
         'pycrypto',
+        'xmltodict',
     ]
 )
