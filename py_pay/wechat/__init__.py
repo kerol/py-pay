@@ -93,16 +93,18 @@ class WechatPay:
 
     def pay_notify(self, body):
         """
-        支付结果通知
+        支付结果通知，需要校验用户真实充值和订单金额是否一致
         :param body:  request.body
-        :return: True or None
+        :return: True, result dict or False, {}
         """
         data = to_dict(body.decode('utf-8'))
         if data['return_code'] != 'SUCCESS' and data['result_code'] == 'SUCCESS' and data['appid'] == self.app_id \
                 and data['mch_id'] == self.mch_id:
             check_sign = data.pop('sign')
             if check_sign == sign(self.key, data):
-                return True
+                return True, data
+
+        return False, {}
 
     def refund_notify(self):
         """ 退款结果通知 """

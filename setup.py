@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="py-pay",
-    version="1.1.0",
+    version="1.2.0",
     author="kerol",
     author_email="ikerol@163.com",
     description="Python pay library: alipay, wechat, etc.",
