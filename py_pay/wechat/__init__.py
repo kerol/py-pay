@@ -98,7 +98,7 @@ class WechatPay:
         :return: True, result dict or False, {}
         """
         data = to_dict(body.decode('utf-8'))
-        if data['return_code'] != 'SUCCESS' and data['result_code'] == 'SUCCESS' and data['appid'] == self.app_id \
+        if data['return_code'] == 'SUCCESS' and data['result_code'] == 'SUCCESS' and data['appid'] == self.app_id \
                 and data['mch_id'] == self.mch_id:
             check_sign = data.pop('sign')
             if check_sign == sign(self.key, data):
